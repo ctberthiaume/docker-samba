@@ -1,6 +1,8 @@
 # samba
 Ubuntu 18.04 Samba server
 
+This is based on the Docker build instructions for a Samba server at https://github.com/Kaixhin/dockerfiles/tree/master/samba, with changes to extend runtime configuration.
+
 ## Build
 `docker build -t samba .`
 
@@ -36,3 +38,5 @@ docker run -itd -p 137-139:137-139 -p 445:445 \
 ```
 
 The shell can be entered as usual using `docker run -it samba bash`.
+
+## Ackno
