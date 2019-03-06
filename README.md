@@ -1,7 +1,7 @@
 # samba
 Ubuntu 18.04 Samba server
 
-This is based on the Docker build instructions for a Samba server at https://github.com/Kaixhin/dockerfiles/tree/master/samba, with changes to extend runtime configuration.
+This is based on the Docker build instructions for a Samba server at https://github.com/Kaixhin/dockerfiles/tree/master/samba, with changes to extend runtime configuration and switch Ubuntu versions.
 
 ## Build
 `docker build -t samba .`
@@ -20,15 +20,18 @@ Data is written to `/data`. Map any volumes or bind mounts to this location.
 Ports 137-139 and 445 should be exposed.
 
 ### Examples
-Assuming an image has been created called samba.
+Examples assume an image has been created called samba.
 
 Using a bind mount
+
 `docker run -itd -p 137-139:137-139 -p 445:445 -v $(pwd):/data samba`
 
 Using a named volume
+
 `docker run -itd -p 137-139:137-139 -p 445:445 -v samba-storage:/data samba`
 
 Using custom user, password, and share names
+
 ```
 docker run -itd -p 137-139:137-139 -p 445:445 \
     -e SAMBA_USER=picard \
