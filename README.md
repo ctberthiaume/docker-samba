@@ -41,5 +41,3 @@ docker run -itd -p 137-139:137-139 -p 445:445 \
 ```
 
 The shell can be entered as usual using `docker run -it samba bash`.
-
-## Ackno
