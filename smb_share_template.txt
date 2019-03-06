@@ -1,0 +1,9 @@
+
+[SAMBA_SHARE_NAME]
+path = /data
+available = yes
+valid users = SAMBA_USER
+read only = no
+browseable = yes
+public = yes
+writeable = yes
