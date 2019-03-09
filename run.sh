@@ -26,7 +26,7 @@ file_env() {
     unset "$fileVar"
 }
 
-file_env "SAMBA_USER" "user"
+# SAMBA_PASSWORD_FILE will be converted to SAMBA_PASSWORD
 file_env "SAMBA_PASSWORD" "password"
 file_env "SAMBA_SHARE_NAME" "data"
 

@@ -16,9 +16,10 @@ COPY run.sh smb_share_template.txt /
 
 # Make samba data location
 RUN mkdir /data
+VOLUME /data
 
 # Expose Samba ports
 EXPOSE 137 138 139 445
 
 # Run Samba in the foreground
-CMD /run.sh
+CMD ["/run.sh"]
