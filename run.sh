@@ -27,6 +27,7 @@ file_env() {
 }
 
 # SAMBA_PASSWORD_FILE will be converted to SAMBA_PASSWORD
+file_env "SAMBA_USER" "user"
 file_env "SAMBA_PASSWORD" "password"
 file_env "SAMBA_SHARE_NAME" "data"
 
@@ -39,5 +40,5 @@ id -u "$SAMBA_USER" >/dev/null 2>&1 || adduser --disabled-password --gecos "" "$
 chown -R "${SAMBA_USER}:${SAMBA_USER}" /data
 echo -e "${SAMBA_PASSWORD}\n${SAMBA_PASSWORD}" | smbpasswd -sa "$SAMBA_USER"
 
-# Run Samba in the foreground
-/usr/sbin/smbd -FS
+# Run Samba in the foreground, use exec to make it main Docker process
+exec /usr/sbin/smbd -FS
